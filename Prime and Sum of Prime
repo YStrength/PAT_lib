@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <math.h>
+
+int prime( int p );
+int PrimeSum( int m, int n );
+
+//int main()
+//{
+//    int m, n, p;
+//
+//    scanf("%d %d", &m, &n);
+//    printf("Sum of ( ");
+//    for( p=m; p<=n; p++ ) {
+//        if( prime(p) != 0 )
+//            printf("%d ", p);
+//    }
+//    printf(") = %d\n", PrimeSum(m, n));
+//
+//    return 0;
+//}
+
+int prime ( int p )
+{
+	int k,ret=1;
+	if (p<=1){
+			ret=0;
+		}
+	for(k=2;k<p-1;k++){
+		if(p%k==0){
+			ret =0;
+			break;
+		} 
+		else {
+			ret =1;
+		}
+	}
+return ret;
+}
+
+int PrimeSum ( int m, int n )
+{
+	int i,sum=0;
+	for(i=m;i<=n;i++){
+		if (prime(i)){
+			sum +=i;
+		}	
+	}
+return sum;
+}
+
+//void Goldbach(int n)
+//{
+//	int p,q;
+//	for (p=1,q=1;(prime(p)==0 || prime(q)==0) && n!=p+q;p++,q++);
+//	printf("%d=%d+%d",n,p,q);
+//}
+int main()
+{
+	int n=90;
+	int p,q;
+	for (p=1,q=1; prime(p)==0 && prime(q)==0 && n!=p+q;p++,q++);
+	printf("%d=%d+%d",n,p,q);
+}
