@@ -1,0 +1,32 @@
+#include <stdio.h>
+int main()
+{
+	int M,N,i,C,c,min,max;
+	scanf("%d %d",&M,&N);
+	if (M>0 && M<=1000 && N>0 && N<=1000){
+		if(M<N){
+			min=M;
+			max=N;
+		} 
+		else {
+			min=N;
+			max=M;
+		}
+		for(i=min;i>1;i--){
+			if (M%i==0 && N%i==0){
+	//			printf("%d\n",i);
+				C=i;
+				break;
+			}
+		}
+		for(i=max;i>=max;i++){
+			if (i%M==0 && i%N==0){
+	//		printf("%d\n",i);
+			c=i;
+			break;
+			}
+		}
+	printf("%d %d",C,c);
+	}
+return 0;
+}
